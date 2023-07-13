@@ -1,0 +1,10 @@
+fastapi
+httpx
+uvicorn
+sqlalchemy
+sqlalchemy_utils
+alembic
+psycopg[binary]
+python-dateutil
+pydantic
+pytest

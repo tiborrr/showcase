@@ -1,0 +1,101 @@
+@startuml "UX"
+!unquoted procedure SALT($x)
+"{{
+salt
+%invoke_procedure("_"+$x)
+}}" as $x
+!endprocedure
+
+!procedure _login()
+{+
+    <b>Login
+    --
+    "Enter your name"
+    [login]
+}
+!endprocedure
+
+!procedure _home()
+{+
+    <b>All posts</b>
+    --
+    Logged in as <b>John Doe</b>
+    --
+    [create post]
+    --
+    {
+        <b>Post Title #1</b> by <b>Alice</b>
+        Some very intersting text
+        that goes on and on
+        --
+        <b>Comment #1</b> by <b>Bob</b>
+        Some very intersting comment
+        That goes on and on
+        --
+        [Reply]
+    }
+    {
+        <b>Post Title #2</b> by <b>John Doe</b>
+        Some very intersting text
+        that goes on and on
+        --
+        <b>Comment #1</b> by <b>Alice</b>
+        Some very intersting comment
+        That goes on and on
+        --
+        [Reply]
+    }
+}
+!endprocedure
+
+!procedure _comment()
+{+
+    <b>Comment on Post</b>
+    <i>Title of post</i>
+    --
+    {+Your comment 
+    .
+    "                      "}
+    .
+    [post comment]
+}
+!endprocedure
+
+!procedure _newpost()
+{+
+    <b>Create New Post
+    --
+    "Your post title       "
+    {+Your post content
+    .
+    "                      "}
+    .
+    [create post]
+}
+!endprocedure
+
+!procedure _success()
+{+
+    <b>Success
+    Action successful!
+    [ok]
+}
+!endprocedure
+
+!procedure _error()
+{+
+    <b>Error
+    Action failed, sorry
+    [ok]
+}
+!endprocedure
+
+(*) --> SALT(login)
+--> [clicks login]SALT(home)
+home --> [clicks comment]SALT(comment)
+home --> SALT(newpost)
+comment --> SALT(success)
+comment --> SALT(error)
+newpost --> SALT(success)
+newpost --> SALT(error)
+@enduml
