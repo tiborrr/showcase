@@ -1,5 +1,5 @@
 <template>
-    <form @submit.prevent="submitForm" class="container">
+    <form @submit.prevent="submitForm">
       <div class="form-group mb-3">
         <label for="title">Title</label>
         <input type="text" id="title" v-model="form.title" class="form-control" required />
