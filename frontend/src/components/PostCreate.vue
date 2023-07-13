@@ -1,17 +1,15 @@
 <template>
-  <div class="post-create">
     <form @submit.prevent="submitForm" class="container">
-      <div class="form-group">
+      <div class="form-group mb-3">
         <label for="title">Title</label>
         <input type="text" id="title" v-model="form.title" class="form-control" required />
       </div>
-      <div class="form-group">
+      <div class="form-group mb-3">
         <label for="content">Content</label>
         <textarea id="content" v-model="form.content" class="form-control" required></textarea>
       </div>
       <button type="submit" class="btn btn-primary">Create Post</button>
     </form>
-  </div>
 </template>
 
 <script>
