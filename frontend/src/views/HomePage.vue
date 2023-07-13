@@ -38,13 +38,12 @@
   </div>
 </template>
 
-
-
 <script>
 import { ref, onMounted, onUnmounted } from 'vue';
 import PostCreate from '../components/PostCreate.vue';
 import PostList from '../components/PostList.vue';
 import axios from 'axios';
+import router from '@/router';
 
 export default {
   name: 'HomePage',
@@ -66,7 +65,23 @@ export default {
       }
     };
 
-    onMounted(() => {
+    const checkUserExists = async () => {
+      try {
+        const userId = localStorage.getItem('user_id');
+        if (userId) {
+          const response = await axios.get('/users/1');
+          console.log('User exists:', response.data);
+        } else {
+          console.log('User is not logged in');
+          router.push( { name: 'LoginPage'} )
+        }
+      } catch (error) {
+        console.error('User not found:', error);
+      }
+    };
+
+    onMounted(async () => {
+      await checkUserExists();
       refreshPosts();
       intervalId = setInterval(refreshPosts, 100000);
     });
@@ -76,11 +91,12 @@ export default {
         clearInterval(intervalId);
       }
     });
+
     return {
       posts,
       refreshPosts,
-    }
-  }
+    };
+  },
 };
 </script>
 
