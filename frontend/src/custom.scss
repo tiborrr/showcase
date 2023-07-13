@@ -2,24 +2,21 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap');
 
-$body-bg: #004d40;
-$body-color: #ffffff;
-$font-family-base: 'Open Sans', sans-serif;
-$headings-font-family: 'Montserrat', sans-serif;
-
 $white: #ffffff;
 $theme-colors: (
-  "light":      #e2d8e6,
-  "dark":       #261412,
-  "primary":    #074835,
-  "secondary":  #36946c,
-  "info":       #1b662c,
-  "success":    #0c992f,
-  "warning":    #eec20e,
-  "danger":     #ed053f
+  "light": #eeeeee,
+  "dark": #261412,
+  "primary": #194135,
+  "secondary": #2a7655,
+  "info": #1b662c,
+  "success": #0c992f,
+  "warning": #eec20e,
+  "danger": #ed053f
 );
 
 // Override Bootstrap variables with custom colors
+$light: map-get($theme-colors, "light");
+$dark: map-get($theme-colors, "dark");
 $primary: map-get($theme-colors, "primary");
 $secondary: map-get($theme-colors, "secondary");
 $info: map-get($theme-colors, "info");
@@ -27,29 +24,72 @@ $success: map-get($theme-colors, "success");
 $warning: map-get($theme-colors, "warning");
 $danger: map-get($theme-colors, "danger");
 
-body {
-    background-color: $white;
-    color: $primary;
-  }
-  
-  .navbar {
-    background-color: $secondary;
-  }
-  
-  .alert-info {
-    background-color: $info;
-  }
-  
-  .alert-success {
-    background-color: $success;
-  }
-  
-  .alert-warning {
-    background-color: $warning;
-  }
-  
-  .alert-danger {
-    background-color: $danger;
-  }
+$body-bg: $light;
+$body-color: $dark;
+$font-family-base: 'Open Sans', sans-serif;
+$headings-font-family: 'Montserrat', sans-serif;
 
 @import '~bootstrap/scss/bootstrap';
+
+h2 {
+  color: $white
+}
+
+h3 {
+  color: $white
+}
+
+p {
+  color: $white
+}
+
+label {
+  color: $white
+}
+
+.btn-primary {
+  background-color: $secondary;
+}
+
+.body {
+  background-color: $primary;
+  color: $primary;
+}
+
+.navbar {
+  background-color: $secondary;
+}
+
+.alert-info {
+  background-color: $info;
+}
+
+.alert-success {
+  background-color: $success;
+}
+
+.alert-warning {
+  background-color: $warning;
+}
+
+.alert-danger {
+  background-color: $danger;
+}
+
+.card {
+  background-color: $primary;
+}
+
+.list-group-item {
+  background-color: $primary;
+}
+
+.btn-icon {
+  color: #ffffff; /* color of the edit icon */
+  margin-left: 10px; /* space between icons */
+  cursor: pointer;
+}
+
+.btn-icon:hover {
+  color: grey; /* color when you hover over the icon */
+}

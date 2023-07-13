@@ -1,8 +1,8 @@
 <template>
     <div>
-      <form @submit.prevent="submitForm" class="container">
+      <form @submit.prevent="submitForm">
         <div class="form-group">
-          <textarea v-model="form.content" class="form-control" required></textarea>
+          <textarea v-model="form.content" class="form-control mb-3" required></textarea>
         </div>
         <button type="submit" class="btn btn-primary">Submit</button>
       </form>

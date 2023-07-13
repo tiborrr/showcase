@@ -8,14 +8,14 @@
     "lint": "vue-cli-service lint"
   },
   "dependencies": {
+    "@fortawesome/fontawesome-svg-core": "^6.4.0",
+    "@fortawesome/free-solid-svg-icons": "^6.4.0",
+    "@fortawesome/vue-fontawesome": "^3.0.3",
     "@popperjs/core": "2",
     "axios": "^1.4.0",
     "bootstrap": "^5.3.0",
-    "core-js": "^3.8.3",
-    "sass": "^1.63.6",
     "vue": "^3.2.13",
-    "vue-router": "^4.2.4",
-    "webpack": "5"
+    "vue-router": "^4.2.4"
   },
   "devDependencies": {
     "@babel/core": "^7.12.16",
@@ -23,13 +23,16 @@
     "@vue/cli-plugin-babel": "~5.0.0",
     "@vue/cli-plugin-eslint": "~5.0.0",
     "@vue/cli-service": "~5.0.0",
+    "depcheck": "^1.4.3",
+    "dependency-cruiser": "^13.1.0",
     "dotenv-cli": "^7.2.1",
     "eslint": "^7.32.0",
     "eslint-plugin-vue": "^8.0.3",
     "node-sass": "^9.0.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "sass-loader": "^13.3.2"
+    "sass-loader": "^13.3.2",
+    "webpack": "5"
   },
   "eslintConfig": {
     "root": true,
