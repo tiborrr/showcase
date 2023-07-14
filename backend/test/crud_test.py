@@ -41,7 +41,7 @@ def test_user_crud(session: Session):
 
 
 def test_post_crud(session: Session):
-    # create a user first to associate the post with
+    # Create a user first to associate the post with
     user_create = user_schemas.UserCreate(name="Test User")
     user = create_user(session, user_create)
     assert user.name == "Test User"
@@ -68,7 +68,7 @@ def test_post_crud(session: Session):
 
 
 def test_comment_crud(session: Session):
-    # create a user first to associate the post and comment with
+    # Create a user first to associate the post and comment with
     user_create = user_schemas.UserCreate(name="Test User")
     user = create_user(session, user_create)
     assert user.name == "Test User"

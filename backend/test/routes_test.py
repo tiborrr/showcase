@@ -29,14 +29,14 @@ def test_read_users():
     assert response.status_code == 200, response.text
     data = response.json()
 
-    # check some user in the list
+    # Check some user in the list
     assert len(data) > 0
     for item in data:
         assert "name" in item
         assert "id" in item
 
 def test_update_user():
-    # create a user to be updated
+    # Create a user to be updated
     response = client.post(
         "/users",
         json={"name": "Test User"},
@@ -56,7 +56,7 @@ def test_update_user():
     assert data["id"] == user_id
 
 def test_delete_user():
-    # create a user to be deleted
+    # Create a user to be deleted
     response = client.post(
         "/users",
         json={"name": "Test User"},
@@ -75,7 +75,7 @@ def test_delete_user():
     response = client.get(f"/users/{user_id}")
     assert response.status_code == 404, response.text
 
-# posts endpoints tests
+# Posts endpoints tests
 
 def test_create_post():
     # First, we need a user to associate the post with
@@ -109,7 +109,7 @@ def test_read_posts():
     assert response.status_code == 200, response.text
     data = response.json()
 
-    # check some post in the list
+    # Check some post in the list
     assert len(data) > 0
     for item in data:
         assert "title" in item
@@ -117,7 +117,7 @@ def test_read_posts():
         assert "id" in item
 
 def test_update_post():
-    # create a user to associate the post with
+    # Create a user to associate the post with
     response = client.post(
         "/users",
         json={"name": "Test User"},
@@ -145,7 +145,7 @@ def test_update_post():
     assert data["id"] == post_data["id"]
 
 def test_delete_post():
-    # create a user to associate the post with
+    # Create a user to associate the post with
     response = client.post(
         "/users",
         json={"name": "Test User"},
@@ -153,7 +153,7 @@ def test_delete_post():
     assert response.status_code == 200, response.text
     user_data = response.json()
 
-    # create a post to be deleted
+    # Create a post to be deleted
     response = client.post(
         "/posts",
         json={"title": "Test Post", "content": "This is a test post.", "user_id": user_data['id']},
@@ -171,7 +171,7 @@ def test_delete_post():
     response = client.get(f"/posts/{post_data['id']}")
     assert response.status_code == 404, response.text
 
-# comments endpoints tests
+# Comments endpoints tests
 
 def test_create_comment():
     # First, we need a user to associate the post and the comment with
@@ -211,14 +211,14 @@ def test_read_comments():
     assert response.status_code == 200, response.text
     data = response.json()
 
-    # check some comment in the list
+    # Check some comment in the list
     assert len(data) > 0
     for item in data:
         assert "content" in item
         assert "id" in item
 
 def test_update_comment():
-    # create a user to associate the post and the comment with
+    # Create a user to associate the post and the comment with
     response = client.post(
         "/users",
         json={"name": "Test User"},
@@ -234,7 +234,7 @@ def test_update_comment():
     assert response.status_code == 200, response.text
     post_data = response.json()
 
-    # create a comment to be updated
+    # Create a comment to be updated
     response = client.post(
         f"/posts/{post_data['id']}/comments",
         json={"content": "This is a test comment.", "author_id": user_data['id']},
@@ -253,7 +253,7 @@ def test_update_comment():
     assert data["id"] == comment_data["id"]
 
 def test_delete_comment():
-    # create a user to associate the post and the comment with
+    # Create a user to associate the post and the comment with
     response = client.post(
         "/users",
         json={"name": "Test User"},
@@ -269,7 +269,7 @@ def test_delete_comment():
     assert response.status_code == 200, response.text
     post_data = response.json()
 
-    # create a comment to be deleted
+    # Create a comment to be deleted
     response = client.post(
         f"/posts/{post_data['id']}/comments",
         json={"content": "This is a test comment.", "author_id": user_data['id']},
